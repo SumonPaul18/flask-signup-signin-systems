@@ -11,3 +11,4 @@
 - [Secure OAuth in Flask (Video)](https://www.youtube.com/watch?v=wctDfjx4xIw)
 - [User Authentication with Flask (Github)](https://github.com/Joshwen7947/User-Authentication-with-Flask)
 - [Flask Apps with Authlib (Video)](https://www.youtube.com/watch?v=fZLWO3_V06Q)
+- [Flask Email Verification OTP (Video)](https://www.youtube.com/watch?v=ByoCkmilHg0&t=209s)
