@@ -1,4 +1,11 @@
 # Flask Authentications Systems 
+```
+git clone https://github.com/SumonPaul18/flask-authentication.git
+cd flask-authentication
+```
+```
+python3 app.py
+```
 
 
 #
