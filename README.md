@@ -26,3 +26,4 @@ python3 app.py
 - [Flask Apps with Authlib (Video)](https://www.youtube.com/watch?v=fZLWO3_V06Q)
 - [Flask Email Verification OTP (Video)](https://www.youtube.com/watch?v=ByoCkmilHg0&t=209s)
 - [soumilshah1995 (Github)](https://github.com/soumilshah1995/Google-oAuth-Flask-handelBarJS.git)
+- [note-web](https://github.com/boyuan12/note-web.git)
