@@ -11,7 +11,7 @@ python3 app.py
 #
 #### Reference:
 
-- [flask-login-system-google-01(Checked)](https://github.com/SumonPaul18/flask-login-system-google-01.git)
+- [flask-login-system-google-01(Pass-Checked)](https://github.com/SumonPaul18/flask-login-system-google-01.git)
 #
 - [Google-Auth (Github)](https://github.com/seunkoko/Python-Flask-Google-Auth)
 - [OAuth in Flask (Video)](https://www.youtube.com/watch?v=ZCDzwYaAKCI)
