@@ -1,7 +1,7 @@
-# Flask Authentications Systems 
+# Flask Signup-Signin Systems 
 ```
-git clone https://github.com/SumonPaul18/flask-authentication.git
-cd flask-authentication
+git clone https://github.com/SumonPaul18/flask-signup-signin-systems.git
+cd flask-signup-signin-systems
 ```
 ```
 python3 app.py
