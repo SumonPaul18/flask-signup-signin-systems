@@ -1,9 +1,16 @@
-# Google Login using OAuth in Flask
+# Google Signup-Signin using OAuth in Flask
 
 ```
-git clone https://github.com/SumonPaul18/flask-authentication.git
-cd flask-authentication
+git clone https://github.com/SumonPaul18/flask-signup-signin-systems.git
+cd flask-signup-signin-systems/oauth-google
 ```
+#### Need to Change some Value as Your Google OAuth Credentials.
+
+```
+ls
+nano
+```
+ 
 ```
 python3 app.py
 ```
