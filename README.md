@@ -27,3 +27,8 @@ python3 app.py
 - [Flask Email Verification OTP (Video)](https://www.youtube.com/watch?v=ByoCkmilHg0&t=209s)
 - [soumilshah1995 (Github)](https://github.com/soumilshah1995/Google-oAuth-Flask-handelBarJS.git)
 - [note-web](https://github.com/boyuan12/note-web.git)
+- [Ashishprashar222/Flask_Mail](https://github.com/Ashishprashar222/Flask_Mail.git)
+- [akshaypawar696/mailVerificationFlask](https://github.com/akshaypawar696/mailVerificationFlask.git)
+- [DinakaranK/Flask-Email-OTP-verification](https://github.com/DinakaranK/Flask-Email-OTP-verification.git)
+- [rhutujashevde/email-otp-flask](https://github.com/rhutujashevde/email-otp-flask.git)
+- [Following-ashutoshkrris](https://github.com/ashutoshkrris/Flask-User-Authentication-With-Email-Verification.git)
