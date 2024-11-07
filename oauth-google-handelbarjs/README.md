@@ -27,5 +27,6 @@ python3 app.py
 #
 #### Reference:
 - [Login with Flask Conditional rendering Using Google OAuth-HandelBar JS(Checked)](https://www.youtube.com/watch?v=vdBT2vdJF2U)
+- [Flask Dashboard with Google OAUTH | Handlebars JS | Tailwinds CSS](https://www.youtube.com/watch?v=vcLxs_OkALg)
 #
 
