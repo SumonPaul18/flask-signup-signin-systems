@@ -10,11 +10,11 @@ ls
 
 #### Replace values in `.env` as Your Google OAuth Credentials. 
 #### Need to Change in `.env`:
-SECRET_KEY=Input your secret key
+`SECRET_KEY`=Input your secret key
 
-GOOGLE_CLIENT_ID=Input your Google-Client-ID
+`GOOGLE_CLIENT_ID`=Input your Google-Client-ID
 
-GOOGLE_CLIENT_SECRET=Input Google-Client-Secret
+`GOOGLE_CLIENT_SECRET`=Input Google-Client-Secret
 
 ```
 nano .env
