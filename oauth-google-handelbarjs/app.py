@@ -5,6 +5,8 @@ try:
     from datetime import timedelta
     from authlib.integrations.flask_client import OAuth
     import json
+    from dotenv import load_dotenv
+    load_dotenv()
 except Exception as e:
     print("Some Modules are Missing : {} ".format(e))
 
@@ -16,11 +18,11 @@ app = Flask(__name__)
 global client_id
 global client_secret
 
-client_id = "1060756187878-anqsb9icnvlbpllst2v21oj7f80o1m88.apps.googleusercontent.com"
-client_secret = "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"
+client_id =os.getenv("GOOGLE_CLIENT_ID"),
+client_secret =os.getenv("GOOGLE_CLIENT_SECRET"),
 
 # Session config
-app.secret_key = "Paulco.xyz"
+app.secret_key =os.getenv("SECRET_KEY")
 app.config['SESSION_COOKIE_NAME'] = 'google-login-session'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
 # ======================================================================
