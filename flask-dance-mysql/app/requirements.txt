@@ -1,0 +1,4 @@
+Flask
+Flask-Dance
+Flask-Session
+mysqlclient
