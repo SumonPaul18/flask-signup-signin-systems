@@ -1,36 +1,45 @@
 version: '3.8'
-
 services:
-  db:
-    image: mysql:8.0
-    container_name: mysql
+  fdance-db:
+    image: mysql:5.7
+    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: flask
-      MYSQL_DATABASE: flask-dance
-      MYSQL_USER: flask
-      MYSQL_PASSWORD: flask
+      MYSQL_ROOT_PASSWORD: oauth
+      MYSQL_DATABASE: oauth
+      MYSQL_USER: oauth
+      MYSQL_PASSWORD: oauth
     volumes:
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
-    ports:
-      - "3306:3306"
+      - $PWD/mysql/:/var/lib/mysql
+    networks:
+      - flask-dance-mysql
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin
-    environment:
-      PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: flask
-    ports:
-      - "8089:80"
+    image: phpmyadmin/phpmyadmin:latest
     depends_on:
-      - db
+      - fdance-db
+    restart: always
+    environment:
+      PMA_HOST: fdance-db
+      PMA_USER: oauth
+      PMA_PASSWORD: oauth
+    ports:
+      - "8014:80"
+    networks:
+      - flask-dance-mysql
 
   web:
-    build: ./app
-    container_name: flask_app
-    environment:
-      FLASK_ENV: development
+    build: .
+    restart: always
+    command: python app.py
+    volumes:
+      - $PWD:/app
     ports:
       - "5000:5000"
     depends_on:
-      - db
+      - fdance-db
+    networks:
+      - flask-dance-mysql
+
+
+networks:
+  flask-dance-mysql:
