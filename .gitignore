@@ -1,3 +1,4 @@
 .env
 secret
 .db
+multi.db
