@@ -1,4 +1,4 @@
-.env
-secret
-.db
-multi.db
+#.env
+#secret
+#.db
+#multi.db
