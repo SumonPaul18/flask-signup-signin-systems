@@ -43,3 +43,14 @@ google = oauth.register(
 Now, you try again and see the error have solved.
 
 #
+
+### 3. Error: ModuleNotFoundError: No module named 'urllib3.packages.six'
+#### Solution:
+Removing and installing the `urllib3` package then resolve the error.
+
+```
+pip uninstall urllib3
+pip install urllib3
+```
+Now, you try again and see the error have solved.
+#
