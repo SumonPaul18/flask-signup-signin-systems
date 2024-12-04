@@ -18,11 +18,11 @@ load_dotenv()
 os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
-# setup Flask application
+# Setup Flask application
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "supersekrit")
 
-# setup database models
+# Setup database models
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///multi.db"
 db = SQLAlchemy(app)
 
@@ -37,7 +37,7 @@ class OAuth(OAuthConsumerMixin, db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(User.id))
     user = db.relationship(User)
 
-# setup login manager
+# Setup login manager
 login_manager = LoginManager()
 login_manager.login_view = 'github.login'
 login_manager.init_app(app)
@@ -46,7 +46,7 @@ login_manager.init_app(app)
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-# setup GitHub OAuth
+# Setup GitHub OAuth
 blueprint = make_github_blueprint(
     client_id=os.getenv("GITHUB_CLIENT_ID"),
     client_secret=os.getenv("GITHUB_CLIENT_SECRET"),
@@ -54,7 +54,7 @@ blueprint = make_github_blueprint(
 blueprint.backend = SQLAlchemyStorage(OAuth, db.session, user=current_user)
 app.register_blueprint(blueprint, url_prefix="/login")
 
-# create/login local user on successful OAuth login
+# Create/login local user on successful OAuth login
 @oauth_authorized.connect_via(blueprint)
 def github_logged_in(blueprint, token):
     if not token:
@@ -99,7 +99,7 @@ def github_logged_in(blueprint, token):
     print(f"Logged in user: {current_user.name}, {current_user.email}")
     return False
 
-# notify on OAuth provider error
+# Notify on OAuth provider error
 @oauth_error.connect_via(blueprint)
 def github_error(blueprint, error, error_description=None, error_uri=None):
     msg = (
