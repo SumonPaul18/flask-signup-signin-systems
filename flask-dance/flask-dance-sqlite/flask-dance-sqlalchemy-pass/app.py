@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
+# Environment settings for OAuth
 os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
