@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h2 class="title">Login</h2>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                <div class="notification is-danger">
+                  {% for category, message in messages %}
+                    <p class="{{ category }}">{{ message }}</p>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endwith %}
+            <form method="POST" action="{{ url_for('login') }}">
+                <div class="field">
+                    <label class="label" for="email">Email:</label>
+                    <div class="control">
+                        <input class="input" type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="password">Password:</label>
+                    <div class="control">
+                        <input class="input" type="password" id="password" name="password" required>
+                    </div>
+                </div>
+                <div class="control">
+                    <button class="button is-primary" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h2 class="title">Sign Up</h2>
+            <form method="POST" action="{{ url_for('signup') }}" onsubmit="return validateForm()">
+                <div class="field">
+                    <label class="label" for="username">Username:</label>
+                    <div class="control">
+                        <input class="input" type="text" id="username" name="username" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="email">Email:</label>
+                    <div class="control">
+                        <input class="input" type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="password">Password:</label>
+                    <div class="control">
+                        <input class="input" type="password" id="password" name="password" oninput="validatePassword()" required>
+                        <p id="password-strength-text" class="password-strength"></p>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="confirm_password">Confirm Password:</label>
+                    <div class="control">
+                        <input class="input" type="password" id="confirm_password" name="confirm_password" oninput="validateConfirmPassword()" required>
+                        <p id="confirm-password-text" class="password-strength"></p>
+                    </div>
+                </div>
+                <div class="control">
+                    <button class="button is-primary" type="submit">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='js/signup.js') }}"></script>
+</body>
+</html>

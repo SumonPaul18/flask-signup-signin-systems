@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Login - Flask OAuth App{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h2 class="title">Login</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="notification is-{{ category }}">
+                <button class="delete"></button>
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <form method="POST" action="{{ url_for('login') }}">
+            <div class="field">
+                <label class="label" for="email">Email:</label>
+                <div class="control">
+                    <input class="input" type="email" id="email" name="email" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" for="password">Password:</label>
+                <div class="control">
+                    <input class="input" type="password" id="password" name="password" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="checkbox">
+                    <input type="checkbox" name="remember">
+                    Remember Me
+                </label>
+            </div>
+            <div class="control">
+                <button class="button is-primary" type="submit">Login</button>
+            </div>
+        </form>
+        <div class="control">
+            <a class="button is-warning" href="{{ url_for('reset_password') }}">Forgot Password</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

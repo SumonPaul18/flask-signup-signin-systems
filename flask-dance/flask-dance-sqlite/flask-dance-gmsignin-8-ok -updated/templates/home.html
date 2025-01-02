@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Flask OAuth App{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1 class="title">Welcome to the Flask OAuth App</h1>
+        {% if current_user.is_authenticated %}
+            <div class="box">
+                <p class="subtitle">Hello, {{ current_user.name }}!</p>
+                <p>Your email: {{ current_user.email }}</p>
+                <figure class="image is-128x128">
+                    <img src="{{ current_user.profile_pic }}" alt="Profile Picture">
+                </figure>
+                <a class="button is-danger" href="{{ url_for('logout') }}">Logout</a>
+            </div>
+        {% else %}
+            <div class="buttons">
+                <a class="button is-primary" href="{{ url_for('google.login') }}">Login with Google</a>
+                <a class="button is-link" href="{{ url_for('login') }}">Login</a>
+                <a class="button is-info" href="{{ url_for('signup') }}">Sign Up</a>
+                <a class="button is-warning" href="{{ url_for('reset_password') }}">Forgot Password</a>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

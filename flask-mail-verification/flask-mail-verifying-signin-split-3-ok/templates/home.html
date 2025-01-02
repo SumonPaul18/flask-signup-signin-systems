@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask OAuth App</title>
+</head>
+<body>
+    <h1>Welcome to the Flask OAuth App</h1>
+    {% if current_user.is_authenticated %}
+        <p>Hello, {{ current_user.name }}!</p>
+        <p>Your email: {{ current_user.email }}</p>
+        <img src="{{ current_user.profile_pic }}" alt="Profile Picture">
+        <a href="{{ url_for('routes.logout') }}">Logout</a> <!-- Updated this line -->
+    {% else %}
+        <a href="{{ url_for('google.login') }}">Login with Google</a>
+        <a href="{{ url_for('routes.login') }}">Login</a> <!-- Updated this line -->
+        <a href="{{ url_for('routes.signup') }}">Sign Up</a> <!-- Updated this line -->
+    {% endif %}
+</body>
+</html>

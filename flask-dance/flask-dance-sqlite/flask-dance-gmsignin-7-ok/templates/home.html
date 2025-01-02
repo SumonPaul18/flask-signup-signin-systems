@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask OAuth App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='images/pc.png') }}" alt="Logo" style="width: 200px; height: 40px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Solutions</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+            </ul>
+            <ul class="navbar-nav">
+                {% if current_user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Sign In</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Welcome to the Flask OAuth App</h1>
+            {% if current_user.is_authenticated %}
+                <div class="box">
+                    <p class="subtitle">Hello, {{ current_user.name }}!</p>
+                    <p>Your email: {{ current_user.email }}</p>
+                    <figure class="image is-128x128">
+                        <img src="{{ current_user.profile_pic }}" alt="Profile Picture">
+                    </figure>
+                    <a class="button is-danger" href="{{ url_for('logout') }}">Logout</a>
+                </div>
+            {% else %}
+                <div class="buttons">
+                    <a class="button is-primary" href="{{ url_for('google.login') }}">Login with Google</a>
+                    <a class="button is-link" href="{{ url_for('login') }}">Login</a>
+                    <a class="button is-info" href="{{ url_for('signup') }}">Sign Up</a>
+                    <a class="button is-warning" href="{{ url_for('reset_password') }}">Forgot Password</a>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags, title, and CSS links -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Flask OAuth App{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav class="navbar is-light">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='images/pc.png') }}" alt="Logo" style="width: 150px;">
+            </a>
+            <div class="navbar-burger burger" data-target="navbarNav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="navbarNav" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="#">Products</a>
+                <a class="navbar-item" href="#">Solutions</a>
+                <a class="navbar-item" href="#">Pricing</a>
+                <a class="navbar-item" href="#">Blog</a>
+            </div>
+            <div class="navbar-end">
+                {% if current_user.is_authenticated %}
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            {{ current_user.name }}
+                        </a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item">
+                                <strong>Email:</strong> {{ current_user.email }}
+                            </a>
+                            <a class="navbar-item">
+                                <figure class="image is-48x48">
+                                    <img src="{{ current_user.profile_pic }}" alt="Profile Picture">
+                                </figure>
+                            </a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item" href="{{ url_for('logout') }}">
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                {% else %}
+                    <a class="navbar-item" href="{{ url_for('login') }}">Sign In</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    <!-- Page content -->
+    {% block content %}{% endblock %}
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Flask OAuth App</strong> by <a href="#">Your Name</a>. The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+            </p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <form action="#" method="POST" class="subscription-form">
+                <div class="field has-addons has-addons-centered">
+                    <div class="control">
+                        <input class="input" type="email" placeholder="Enter your email">
+                    </div>
+                    <div class="control">
+                        <button class="button is-primary" type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </form>
+            <form action="#" method="POST" class="contact-form">
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Your Name">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                        <input class="input" type="email" placeholder="Your Email">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Message</label>
+                    <div class="control">
+                        <textarea class="textarea" placeholder="Your Message"></textarea>
+                    </div>
+                </div>
+                <div class="control">
+                    <button class="button is-link" type="submit">Send</button>
+                </div>
+            </form>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
