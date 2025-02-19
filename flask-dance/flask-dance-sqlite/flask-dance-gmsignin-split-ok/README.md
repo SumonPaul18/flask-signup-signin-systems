@@ -38,7 +38,10 @@ nano .env
 SECRET_KEY=your_secret_key
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
-SQLALCHEMY_DATABASE_URI=sqlite:///your_database_name.db
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+DATABASE_URL=sqlite:///your_database.db
+OAUTHLIB_RELAX_TOKEN_SCOPE=1
 OAUTHLIB_INSECURE_TRANSPORT=1
 ```
 

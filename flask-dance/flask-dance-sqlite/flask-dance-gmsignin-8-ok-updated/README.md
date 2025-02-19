@@ -38,8 +38,14 @@ nano .env
 SECRET_KEY=your_secret_key
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
-SQLALCHEMY_DATABASE_URI=sqlite:///your_database_name.db
+OAUTHLIB_RELAX_TOKEN_SCOPE=1
 OAUTHLIB_INSECURE_TRANSPORT=1
+MAIL_SERVER=smtp.yourmailserver.com
+MAIL_PORT=your_mail_port
+MAIL_USERNAME=your_mail_username
+MAIL_PASSWORD=your_mail_password
+MAIL_USE_TLS=True
+MAIL_USE_SSL=False
 ```
 
 **Important:** 
