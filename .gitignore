@@ -1,4 +1,8 @@
-#.env
-#secret
-#.db
-#multi.db
+.env
+/*.env
+*.env
+/*secret
+/*.db
+/*multi.db
+/*.sqlite
+.json
