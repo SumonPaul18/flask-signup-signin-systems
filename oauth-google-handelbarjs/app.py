@@ -69,4 +69,4 @@ def hello_world():
     return render_template("Index.html", flag=flag, user=user)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
